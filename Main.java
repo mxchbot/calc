@@ -58,11 +58,15 @@ class Parser
 
         // get arithmetic operator
         operator = currentChar;
-        checkOperator(currentChar);
+        checkOperator(operator);
 
         // get second operand
         secondOperand = parseOperand(expression, (currentCharIndex + 1));
         checkOperand(secondOperand);
+
+        // there must be the end of the expression
+        if (currentCharIndex < expression.length())
+            throw new Exception();
     }
 
     private int parseOperand(String expression, int beginIndex) throws Exception
